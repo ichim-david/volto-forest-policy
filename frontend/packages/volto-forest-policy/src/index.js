@@ -198,6 +198,9 @@ export default function applyConfig(config) {
     organisationName: 'Forest Information System for Europe',
   };
 
+  config.settings.eea.footerOpts = config.settings.eea.footerOpts || {};
+  config.settings.eea.footerOpts.managedBy = config.settings.eea.footerOpts
+    .managedBy || [{}];
   config.settings.eea.footerOpts.managedBy[1] = {
     url: 'https://commission.europa.eu',
     src: ecLogo,
@@ -302,7 +305,6 @@ export default function applyConfig(config) {
       item.GET_CONTENT.splice(item.GET_CONTENT.indexOf('navigation', 1));
     }
   });
-
   config.settings.eea.footerOpts.contacts = [];
   config.settings.eea.footerOpts.social = [];
   config.settings.eea.footerOpts.logosHeader = 'Managed by';
