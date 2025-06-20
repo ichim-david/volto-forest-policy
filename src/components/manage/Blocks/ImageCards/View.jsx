@@ -8,6 +8,7 @@ import { compose } from 'redux';
 import { flattenToAppURL } from '@plone/volto/helpers';
 import { withRouter } from 'react-router-dom';
 import { injectIntl } from 'react-intl';
+import { getImageScaleParams } from '@eeacms/volto-object-widget/helpers';
 
 import './styles.less';
 
@@ -18,35 +19,34 @@ const alignmentTypes = {
   full: 'left',
 };
 
-export const getScaleUrl = (url, size) =>
-  (url || '').includes(config.settings.apiPath)
-    ? `${flattenToAppURL(url.replace('/api', ''))}/@@images/image/${size}`
-    : `${url.replace('/api', '')}/@@images/image/${size}`;
+// REMOVED getScaleUrl as getImageScaleParams will handle this
+// export const getScaleUrl = (url, size) =>
+//   (url || '').includes(config.settings.apiPath)
+//     ? `${flattenToAppURL(url.replace('/api', ''))}/@@images/image/${size}`
+//     : `${url.replace('/api', '')}/@@images/image/${size}`;
 
 const Cards = (props) => {
   const { data, editable, history } = props;
   const {
     align,
     cards,
-    image_scale,
+    image_scale: imageScaleFromData, // Renamed to avoid conflict
     gridSize = 'one',
     theme = 'default',
   } = data;
 
   const makeImage = (item) => {
     const { attachedimage } = item;
+    const image_scale = imageScaleFromData || 'preview';
+    const scaleParams = getImageScaleParams(attachedimage, image_scale);
+
     return (
       <img
         className="cards-tile-image"
-        src={
-          attachedimage
-            ? getScaleUrl(
-                flattenToAppURL(attachedimage),
-                image_scale || 'preview',
-              )
-            : DefaultImageSVG
-        }
+        src={attachedimage ? scaleParams.download : DefaultImageSVG}
         alt={item.title}
+        width={attachedimage ? scaleParams.width : undefined}
+        height={attachedimage ? scaleParams.height : undefined}
       />
     );
   };

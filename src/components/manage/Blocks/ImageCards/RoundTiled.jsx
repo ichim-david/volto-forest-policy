@@ -3,19 +3,23 @@ import { Link } from 'react-router-dom';
 import config from '@plone/volto/registry';
 import { flattenToAppURL } from '@plone/volto/helpers';
 import React, { useEffect } from 'react';
+import { getImageScaleParams } from '@eeacms/volto-object-widget/helpers';
 
 export const getPath = (url) => new URL(url).pathname;
 
 // TODO: the approach for the URL path generation is not correct, it does not
 // work on local;
 
-export const thumbUrl = (url) =>
-  (url || '').includes(config.settings.apiPath)
-    ? `${flattenToAppURL(url)}/@@images/image/preview`
-    : `${url}/@@images/image/preview`;
+// REMOVED thumbUrl as getImageScaleParams will handle this
+// export const thumbUrl = (url) =>
+//   (url || '').includes(config.settings.apiPath)
+//     ? `${flattenToAppURL(url)}/@@images/image/preview`
+//     : `${url}/@@images/image/preview`;
 
 export const Card = (props) => {
   const { title, link, attachedimage } = props; // text,
+  const image_scale = 'preview'; // Or any other defined scale like 'large', 'tile', etc.
+  const scaleParams = getImageScaleParams(attachedimage, image_scale);
 
   useEffect(() => {
     require('./css/roundtiled.less');
@@ -26,7 +30,12 @@ export const Card = (props) => {
       {link ? (
         <>
           <Link to={link}>
-            <img src={thumbUrl(getPath(attachedimage))} alt={title} />
+            <img
+              src={scaleParams.download}
+              alt={title}
+              width={scaleParams.width}
+              height={scaleParams.height}
+            />
           </Link>
           <h5>
             <Link to={link}>{title}</Link>
@@ -34,7 +43,12 @@ export const Card = (props) => {
         </>
       ) : (
         <>
-          <img src={thumbUrl(getPath(attachedimage))} alt={title} />
+          <img
+            src={scaleParams.download}
+            alt={title}
+            width={scaleParams.width}
+            height={scaleParams.height}
+          />
           <h5>{title}</h5>
         </>
       )}

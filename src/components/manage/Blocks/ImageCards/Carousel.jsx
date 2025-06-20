@@ -1,5 +1,6 @@
 import cx from 'classnames';
 import React, { Component } from 'react';
+import { getImageScaleParams } from '@eeacms/volto-object-widget/helpers';
 
 import { Placeholder } from 'semantic-ui-react';
 
@@ -14,14 +15,18 @@ class Carousel extends Component {
   }
 
   renderSlide = (card) => {
+    const image = card.attachedimage;
+    const image_scale = 'large'; // Or 'preview' or any other defined scale
+    const scaleParams = getImageScaleParams(image, image_scale);
+
     return (
       <div className="slider-slide">
         <LazyLoadImage
           className="slide-img"
-          height={600}
+          height={scaleParams.height || 600}
           effect="blur"
-          style={{ backgroundImage: `url(${card.attachedimage})` }}
-          width={'100%'}
+          style={{ backgroundImage: `url(${scaleParams.download})` }}
+          width={scaleParams.width || '100%'}
           visibleByDefault={true}
           placeholder={
             <Placeholder>

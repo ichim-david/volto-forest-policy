@@ -17,6 +17,7 @@
     "url": "git@github.com:eea/volto-forest-policy.git"
   },
   "addons": [
+    "@eeacms/volto-object-widget",
     "@eeacms/volto-eea-map",
     "@eeacms/volto-plotlycharts",
     "@eeacms/volto-datablocks",
@@ -29,6 +30,7 @@
     "@eeacms/volto-searchlib"
   ],
   "dependencies": {
+    "@eeacms/volto-object-widget": "eea/volto-object-widget#develop",
     "@eeacms/volto-datablocks": "*",
     "@eeacms/volto-eea-design-system": "*",
     "@eeacms/volto-eea-map": "*",
