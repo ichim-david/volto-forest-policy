@@ -1,0 +1,79 @@
+{
+  "name": "volto-forest-policy",
+  "version": "2.0.0-alpha.0",
+  "description": "@eeacms/volto-forest-policy: Volto add-on",
+  "main": "src/index.js",
+  "license": "MIT",
+  "keywords": [
+    "volto-addon",
+    "volto",
+    "plone",
+    "react"
+  ],
+  "author": "European Environment Agency: IDM2 A-Team",
+  "homepage": "https://github.com/eea/volto-forest-policy",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:eea/volto-forest-policy"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "i18n": "rm -rf build/messages && NODE_ENV=production i18n --addon",
+    "dry-release": "release-it --dry-run",
+    "release": "release-it",
+    "release-major-alpha": "release-it major --preRelease=alpha",
+    "release-alpha": "release-it --preRelease=alpha"
+  },
+  "addons": [
+    "@eeacms/volto-eea-map",
+    "@eeacms/volto-plotlycharts",
+    "@eeacms/volto-datablocks",
+    "@eeacms/volto-embed",
+    "@eeacms/volto-openlayers-map",
+    "@eeacms/volto-matomo",
+    "@eeacms/volto-eea-design-system",
+    "@eeacms/volto-eea-website-theme",
+    "@eeacms/volto-globalsearch",
+    "@eeacms/volto-searchlib"
+  ],
+  "dependencies": {
+    "@eeacms/volto-datablocks": "*",
+    "@eeacms/volto-eea-design-system": "*",
+    "@eeacms/volto-eea-map": "*",
+    "@eeacms/volto-eea-website-theme": "*",
+    "@eeacms/volto-embed": "*",
+    "@eeacms/volto-globalsearch": "2.1.0",
+    "@eeacms/volto-matomo": "*",
+    "@eeacms/volto-openlayers-map": "*",
+    "@eeacms/volto-plotlycharts": "*",
+    "@eeacms/volto-searchlib": "2.0.15",
+    "@elastic/react-search-ui": "1.20.2",
+    "@elastic/react-search-ui-views": "1.20.2",
+    "@elastic/search-ui": "1.21.2",
+    "d3-array": "^2.12.1",
+    "draft-js-alignment-plugin": "^2.0.6",
+    "draft-js-focus-plugin": "^3.0.1",
+    "draft-js-import-html": "^1.4.1",
+    "draft-js-inline-toolbar-plugin": "^2.0.3",
+    "draft-js-modifiers": "^0.2.2",
+    "draft-js-plugins-editor": "^3.0.0",
+    "draft-js-resizeable-plugin": "^2.0.9",
+    "draft-js-video-plugin": "^2.0.2",
+    "esri-loader": "^2.14.0",
+    "react-component-queries": "2.3.0",
+    "react-highlight-words": "^0.16.0",
+    "react-image-gallery": "1.2.7",
+    "react-lazy-load-image-component": "^1.5.0",
+    "redraft": "^0.10.2"
+  },
+  "peerDependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@plone/scripts": "^3.6.1",
+    "release-it": "^17.1.1"
+  }
+}

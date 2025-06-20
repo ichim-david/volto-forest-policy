@@ -1,0 +1,336 @@
+/*******************************
+         Site Settings
+*******************************/
+
+/*-------------------
+       Fonts
+--------------------*/
+
+@fontName: 'Poppins';
+@headerFontName: 'Roboto';
+
+// @googleFontSizes   : '300,400,500,700,400italic,700italic';
+
+@headerFont: 'Roboto', sans-serif;
+@pageFont: 'Roboto', sans-serif;
+
+@googleFontName: @fontName;
+@importGoogleFonts: true;
+@googleFontSizes: '300,400,500,600,700,400italic,700italic';
+@googleSubset: 'latin';
+
+@googleProtocol: 'https://';
+@googleFontRequest: '@{googleFontName}:@{googleFontSizes}|@{headerFontName}:@{googleFontSizes}';
+
+@bold: bold;
+@normal: normal;
+
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+@emSize: 16px;
+
+/* The size of page text  */
+@fontSize: 16px;
+
+/*-------------------
+    Border Radius
+--------------------*/
+
+/*-------------------
+    Brand Colors
+--------------------*/
+@primaryColor: @fiseDarkGreen;
+
+@secondaryColor: @fiseGreen;
+
+@lightSecondaryColor: @lightGrey;
+
+/*--------------
+  Page Heading
+---------------*/
+
+@headerFontWeight: 500;
+
+/*--------------
+   Form Input
+---------------*/
+
+/* This adjusts the default form input across all elements */
+@inputHorizontalPadding: 0;
+
+/* Input Text Color */
+@inputPlaceholderColor: #b8c6c8;
+
+/*-------------------
+    Focused Input
+--------------------*/
+
+/*-------------------
+        Sizes
+--------------------*/
+
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+
+@bigSize: (19 / 14);
+@hugeSize: (22 / 14);
+@massiveSize: (26 / 14);
+
+/*-------------------
+        Page
+--------------------*/
+
+@pageBackground: @white;
+
+/*-------------------
+      Paragraph
+--------------------*/
+
+/*-------------------
+       Links
+--------------------*/
+
+@linkColor: @blue;
+
+/*-------------------
+    Scroll Bars
+--------------------*/
+
+/*-------------------
+  Highlighted Text
+--------------------*/
+
+/*-------------------
+       Loader
+--------------------*/
+
+/*-------------------
+        Grid
+--------------------*/
+
+@columnCount: 12;
+
+/*-------------------
+     Transitions
+--------------------*/
+
+/*-------------------
+      Site Colors
+--------------------*/
+
+/*---  Theme colors  ---*/
+
+@lightGreen: #6fb22c;
+@darkGreen: #168130;
+@darkerGreen: #005c30;
+@darkBrown: #8e4313;
+@darkOrange: #b94d1f;
+@fiseGreen: #007b6c;
+@fiseDarkGreen: #005248;
+
+// @textColor        : #002200;
+@textColor: #3d5265;
+
+/*---  Colors  ---*/
+@orange: #fa5c2a; // Palette: reddishOrange
+@yellow: #f6a800; // Palette: goldenRod
+@green: #168130; // Palette: darkPastelGreen
+@teal: #5893a9; // Palette: slate
+@blue: #5893a9; // Palette: Plone (tealBlue/cerulean)
+@pink: #e63d5c; // Palette: darkHotPink
+@brown: #8e4313; // Palette: reddishGrey
+@grey: #9cc7d2; // Palette: blueishGrey
+@black: #252525; // Palette: darkishGrey
+
+/*---  Light Colors  ---*/
+@lightOlive: #bed492; // Palette: lightSage
+@lightGrey: #a6a6a6;
+
+/*---   Neutrals  ---*/
+@fullBlack: #000000;
+@offWhite: #f9fafb;
+@darkWhite: #f3f4f5;
+@midWhite: #dcddde;
+@white: #ffffff;
+
+/*--- Colored Backgrounds ---*/
+@redBackground: #fde7dc; // Palette: alertError
+@tealBackground: #edf1f2; // Palette: Breadcrumbs
+@blueBackground: #f2f6f8;
+@purpleBackground: #b8c6c8; // Dublin Core Summary
+
+/*--- Colored Headers ---*/
+
+/*--- Colored Text ---*/
+@tealTextColor: @teal;
+
+/*--- Colored Border ---*/
+// Pastanaga custom borders colors
+@greyBorderColor: #c7d5d8; // breadcrumbs border
+@lightGreyBorderColor: #d9d9d9; // breadcrumbs background
+@blocksBorderGreen: #168130;
+
+/*-------------------
+     Alpha Colors
+--------------------*/
+
+/*-------------------
+       Accents
+--------------------*/
+
+/*******************************
+           Power-User
+*******************************/
+
+/*-------------------
+    Emotive Colors
+--------------------*/
+
+/* Positive */
+
+/* Negative */
+@negativeBackgroundColor: rgb(253, 231, 220);
+@negativeHeaderColor: @black;
+@negativeTextColor: @black;
+
+/* Info */
+
+/* Warning */
+
+/*-------------------
+        Paths
+--------------------*/
+
+/*-------------------
+       Em Sizes
+--------------------*/
+
+/* em */
+
+/* rem */
+
+/*-------------------
+       Icons
+--------------------*/
+
+/*-------------------
+     Neutral Text
+--------------------*/
+
+@selectedTextColor: @lightGrey;
+@inverteditemlinkcolor: @white;
+
+/*-------------------
+     Brand Colors
+--------------------*/
+
+@youtubeColor: #cc181e;
+
+/*-------------------
+      Borders
+--------------------*/
+
+@borderColor: @greyBorderColor;
+
+/*-------------------
+    Derived Values
+--------------------*/
+
+/* Loaders Position Offset */
+
+/* Rendered Scrollbar Width */
+
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+
+/* Used to match floats with text */
+
+/* Header Spacing */
+
+/* Minimum Mobile Width */
+
+/* Positive / Negative Dupes */
+
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+
+/* Columns */
+
+/*******************************
+             States
+*******************************/
+
+/*-------------------
+      Disabled
+--------------------*/
+
+/*-------------------
+        Hover
+--------------------*/
+
+/*---  Shadows  ---*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Brand   ---*/
+
+/*---  Dark Tones  ---*/
+
+/*---  Light Tones  ---*/
+
+/*-------------------
+        Focus
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Brand   ---*/
+
+/*---  Dark Tones  ---*/
+
+/*---  Light Tones  ---*/
+
+/*-------------------
+    Down (:active)
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Brand   ---*/
+
+/*---  Dark Tones  ---*/
+
+/*---  Light Tones  ---*/
+
+/*-------------------
+        Active
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Brand   ---*/
+
+/*---  Dark Tones  ---*/
+
+/*---  Light Tones  ---*/

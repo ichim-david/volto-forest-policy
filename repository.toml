@@ -1,0 +1,37 @@
+[repository]
+name = "volto-forest-policy"
+managed_by_uv = false
+changelog = "CHANGELOG.md"
+version = "version.txt"
+compose = "docker-compose.yml"
+
+[repository.towncrier]
+section = "Project"
+settings = "towncrier.toml"
+
+[backend]
+path = "backend"
+
+[backend.package]
+name = "volto.forest.policy"
+path = "backend"
+changelog = "backend/CHANGELOG.md"
+towncrier_settings = "backend/pyproject.toml"
+base_package = "Products.CMFPlone"
+publish = false
+
+[frontend]
+path = "frontend"
+
+[frontend.package]
+name = "volto-forest-policy"
+path = "frontend/packages/volto-forest-policy"
+changelog = "frontend/packages/volto-forest-policy/CHANGELOG.md"
+towncrier_settings = "frontend/packages/volto-forest-policy/towncrier.toml"
+base_package = "@plone/volto"
+publish = false
+
+[cookieplone]
+template = "project"
+template_version = "3e8fbc360e69cc1a6304184896e462e7f08e3abb"
+generated_date = "2025-06-20 16:46:11"

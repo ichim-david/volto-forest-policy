@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layers>
+  <layer interface="volto.forest.policy.interfaces.IBrowserLayer"
+         name="volto.forest.policy"
+  />
+</layers>
