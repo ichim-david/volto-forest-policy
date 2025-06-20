@@ -4,7 +4,7 @@ import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 
 import _ from 'lodash';
-import qs from 'querystring';
+import qs from 'query-string';
 import { Icon } from '@plone/volto/components';
 import { Table, Pagination, Search } from 'semantic-ui-react';
 import RenderComponent from '@eeacms/volto-datablocks/components/manage/Blocks/SimpleDataTable/components';
