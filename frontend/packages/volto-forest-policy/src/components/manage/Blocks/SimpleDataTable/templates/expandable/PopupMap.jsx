@@ -3,7 +3,7 @@ import { compose } from 'redux';
 import { connectToProviderData } from '@eeacms/volto-datablocks/hocs';
 import { Map } from '@eeacms/volto-openlayers-map/Map';
 import { Layers, Layer } from '@eeacms/volto-openlayers-map/Layers';
-import { openlayers } from '@eeacms/volto-openlayers-map';
+import { injectLazyLibs } from '@plone/volto/helpers/Loadable/Loadable';
 
 const getLayerBaseURL = () =>
   'https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}';
@@ -20,6 +20,11 @@ const PopupMap = ({
   provider_data,
   data_providers,
   mapData,
+  proj,
+  ol,
+  source,
+  style,
+  geom,
 }) => {
   const [mapRendered, setMapRendered] = React.useState(false);
   const [mapCenter, setMapCenter] = React.useState([9, 45]);
@@ -27,8 +32,6 @@ const PopupMap = ({
 
   const [selectedData, setSelectedData] = React.useState([]);
   const [featuresData, setFeaturesData] = React.useState([]);
-
-  const { proj, source, style } = openlayers;
 
   React.useEffect(() => {
     const { long, lat } = mapData;
@@ -67,10 +70,8 @@ const PopupMap = ({
           newMapData.push(obj);
 
           newFeaturesData.push(
-            new openlayers.ol.Feature(
-              new openlayers.geom.Point(
-                openlayers.proj.fromLonLat([obj[long], obj[lat]]),
-              ),
+            new ol.Feature(
+              new geom.Point(proj.fromLonLat([obj[long], obj[lat]])),
             ),
           );
         });
@@ -89,7 +90,6 @@ const PopupMap = ({
   //const uniqueCountries = [...new Set(countries)];
 
   const centerToPosition = (position, zoom) => {
-    const { proj } = openlayers;
     return mapRef.current.getView().animate({
       center: proj.fromLonLat([position.longitude, position.latitude]),
       duration: 1000,
@@ -176,4 +176,4 @@ export default compose(
       provider_url: props.providerUrl,
     };
   }),
-)(PopupMap);
+)(injectLazyLibs(['proj', 'source', 'style', 'ol', 'geom'])(PopupMap));
