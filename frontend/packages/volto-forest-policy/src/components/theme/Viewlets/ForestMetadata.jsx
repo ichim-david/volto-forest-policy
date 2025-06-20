@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import { Portal } from 'react-portal';
+import { createPortal } from 'react-dom';
 import { Label, Grid } from 'semantic-ui-react';
 
 const ForestMetadata = (props) => {
@@ -22,8 +22,9 @@ const ForestMetadata = (props) => {
   } = (props && props.content) || {};
 
   return (
-    (__CLIENT__ && document.getElementById('forest-metadata-slot') && (
-      <Portal node={document.getElementById('forest-metadata-slot')}>
+    (__CLIENT__ &&
+      document.getElementById('forest-metadata-slot') &&
+      (createPortal(
         <Grid columns={2} className="page_metadata">
           <Grid.Column width={3}>
             {nuts_level && nuts_level.length > 0 && (
@@ -132,9 +133,9 @@ const ForestMetadata = (props) => {
               </div>
             )}
           </Grid.Column>
-        </Grid>
-      </Portal>
-    )) ||
+        </Grid>,
+      ),
+      document.getElementById('forest-metadata-slot'))) ||
     ''
   );
 };

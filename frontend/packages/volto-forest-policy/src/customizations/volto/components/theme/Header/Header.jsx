@@ -23,7 +23,7 @@ import globeIcon from '@eeacms/volto-eea-design-system/../theme/themes/eea/asset
 import eeaFlag from '@eeacms/volto-eea-design-system/../theme/themes/eea/assets/images/Header/eea.png';
 
 import config from '@plone/volto/registry';
-import { compose } from 'recompose';
+import { compose } from 'redux';
 
 import cx from 'classnames';
 
@@ -124,7 +124,7 @@ const EEAHeader = ({
               <a
                 href="https://europa.eu/european-union/contact/institutions-bodies_en"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 onKeyDown={(evt) => evt.stopPropagation()}
               >
                 See all EU institutions and bodies
@@ -148,7 +148,7 @@ const EEAHeader = ({
                       href={item.href}
                       className="site"
                       target="_blank"
-                      rel="noopener"
+                      rel="noopener noreferrer"
                       onKeyDown={(evt) => evt.stopPropagation()}
                     >
                       {item.title}

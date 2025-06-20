@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Portal } from 'react-portal';
+import { createPortal } from 'react-dom';
 
 import { Link } from 'react-router-dom';
 import { Icon } from '@plone/volto/components';
@@ -16,17 +16,19 @@ class EditSliderButton extends Component {
     );
 
     return (
-      (__CLIENT__ && show && document.querySelector('.toolbar-actions') && (
-        <Portal node={document.querySelector('.toolbar-actions')}>
+      (__CLIENT__ &&
+        show &&
+        document.querySelector('.toolbar-actions') &&
+        createPortal(
           <Link
             aria-label="Edit Slider"
             className="edit-slider"
             to={`${path}/manage-slider`}
           >
             <Icon name={penSVG} size="30px" className="circled" />
-          </Link>
-        </Portal>
-      )) ||
+          </Link>,
+          document.querySelector('.toolbar-actions'),
+        )) ||
       ''
     );
   }

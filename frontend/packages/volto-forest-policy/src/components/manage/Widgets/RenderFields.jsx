@@ -1,5 +1,5 @@
 import React from 'react';
-import { Portal } from 'react-portal';
+import { createPortal } from 'react-dom';
 import { Segment, Button } from 'semantic-ui-react';
 import {
   Field,
@@ -326,9 +326,10 @@ const RenderFields = (props) => {
     </Segment.Group>
   );
   return withFormManager ? (
-    <Portal node={__CLIENT__ && document.getElementById('sidebar-metadata')}>
-      {fieldsView}
-    </Portal>
+    createPortal(
+      fieldsView,
+      __CLIENT__ && document.getElementById('sidebar-metadata'),
+    )
   ) : (
     <SidebarPortal selected={props.selected}>{fieldsView}</SidebarPortal>
   );

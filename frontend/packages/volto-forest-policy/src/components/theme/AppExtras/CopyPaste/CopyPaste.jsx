@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { Portal } from 'react-portal';
+import { createPortal } from 'react-dom';
 import { toast } from 'react-toastify';
 import { Button } from 'semantic-ui-react';
 import { getBaseUrl } from '@plone/volto/helpers';
@@ -115,49 +115,45 @@ const CopyPaste = (props) => {
 
   if (!__CLIENT__ || !readyToRender) return '';
 
-  return (
-    <Portal node={document.querySelector('#toolbar .toolbar-actions')}>
-      <div
-        ref={toolbar}
-        id="__developer_tools"
-        onMouseEnter={(e) => {
-          if (
-            e.altKey &&
-            toolbar.current &&
-            !toolbar.current.classList.contains('__dev_on')
-          ) {
-            toolbar.current.classList.add('__dev_on');
-          }
-        }}
-        onMouseLeave={(e) => {
-          if (
-            toolbar.current &&
-            toolbar.current.classList.contains('__dev_on')
-          ) {
-            toolbar.current.classList.remove('__dev_on');
-          }
-        }}
-        onFocus={() => {}}
+  return createPortal(
+    <div
+      ref={toolbar}
+      id="__developer_tools"
+      onMouseEnter={(e) => {
+        if (
+          e.altKey &&
+          toolbar.current &&
+          !toolbar.current.classList.contains('__dev_on')
+        ) {
+          toolbar.current.classList.add('__dev_on');
+        }
+      }}
+      onMouseLeave={(e) => {
+        if (toolbar.current && toolbar.current.classList.contains('__dev_on')) {
+          toolbar.current.classList.remove('__dev_on');
+        }
+      }}
+      onFocus={() => {}}
+    >
+      <Button
+        className="copy"
+        aria-label="Copy blocks data"
+        title="Copy blocks data"
+        onClick={copyData}
       >
-        <Button
-          className="copy"
-          aria-label="Copy blocks data"
-          title="Copy blocks data"
-          onClick={copyData}
-        >
-          <Icon name={copySVG} className="circled" size="30px" />
-        </Button>
-        <Button
-          className="paste"
-          aria-label="Paste blocks data"
-          title="Paste blocks data"
-          onClick={pasteData}
-          disabled={props.updateRequest.loading}
-        >
-          <Icon name={pasteSVG} className="circled" size="30px" />
-        </Button>
-      </div>
-    </Portal>
+        <Icon name={copySVG} className="circled" size="30px" />
+      </Button>
+      <Button
+        className="paste"
+        aria-label="Paste blocks data"
+        title="Paste blocks data"
+        onClick={pasteData}
+        disabled={props.updateRequest.loading}
+      >
+        <Icon name={pasteSVG} className="circled" size="30px" />
+      </Button>
+    </div>,
+    __CLIENT__ && document.querySelector('#toolbar .toolbar-actions'),
   );
 };
 
