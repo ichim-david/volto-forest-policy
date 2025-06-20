@@ -28,10 +28,7 @@ module.exports = {
           ['@plone/volto', `${coreLocation}/packages/volto/src`],
           ['@plone/volto-slate', `${coreLocation}/packages/volto-slate/src`],
           ['@plone/registry', `${coreLocation}/packages/registry/src`],
-          [
-            'volto-forest-policy',
-            './packages/volto-forest-policy/src',
-          ],
+          ['@eeacms/volto-forest-policy', './packages/volto-forest-policy/src'],
           ...addonAliases,
         ],
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
