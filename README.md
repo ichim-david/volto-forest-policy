@@ -27,10 +27,14 @@ Demo GIF
 
       git clone https://github.com/eea/volto-forest-policy.git
       cd volto-forest-policy
-      make
+      ./scripts/setup-docker.sh
       make start
 
 Go to http://localhost:3000
+
+The setup script will pull the Docker images and build the frontend container.
+If `docker compose` is not available, it prints the plain `docker` commands
+that can be used instead.
 
 ### Add volto-forest-policy to your Volto project
 
