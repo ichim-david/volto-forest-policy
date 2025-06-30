@@ -28,6 +28,14 @@ module.exports = {
           ['@plone/volto', `${coreLocation}/packages/volto/src`],
           ['@plone/volto-slate', `${coreLocation}/packages/volto-slate/src`],
           ['@plone/registry', `${coreLocation}/packages/registry/src`],
+          [
+            '@eeacms/search/(.*)$',
+            './packages/volto-forest-policy/node_modules/@eeacms/volto-searchlib/searchlib/$1',
+          ],
+          [
+            '@eeacms/search',
+            './packages/volto-forest-policy/node_modules/@eeacms/volto-searchlib/searchlib',
+          ],
           ['@eeacms/volto-forest-policy', './packages/volto-forest-policy/src'],
           ...addonAliases,
         ],

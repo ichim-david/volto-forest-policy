@@ -100,20 +100,31 @@ clean:  ## Clean installation
 ###########################################
 # QA
 ###########################################
-.PHONY: format
-format:  ## Format codebase
+.PHONY: format-all
+format-all:  ## Format codebase
 	@echo "Format the codebase"
 	$(MAKE) -C "./backend/" format
 	$(MAKE) -C "./frontend/" format
 
-.PHONY: lint
-lint:  ## Format codebase
+.PHONY: format-frontend
+format-frontend:  ## Format frontend codebase
+	@echo "Format the frontend codebase"
+	$(MAKE) -C "./frontend/" format
+
+
+.PHONY: lint-all
+lint-all:  ## Format codebase
 	@echo "Lint the codebase"
 	$(MAKE) -C "./backend/" lint
 	$(MAKE) -C "./frontend/" lint
 
 .PHONY: check
-check:  format lint ## Lint and Format codebase
+check:  format lint-all ## Lint and Format codebase
+
+.PHONY: lint-frontend
+lint-frontend:  ## Lint frontend codebase
+	@echo "Lint the frontend codebase"
+	$(MAKE) -C "./frontend/" lint
 
 ###########################################
 # i18n
@@ -129,6 +140,15 @@ i18n:  ## Update locales
 ###########################################
 .PHONY: test
 test:  backend-test frontend-test ## Test codebase
+
+.PHONY: ci-test-addon
+ci-test-addon: ## Run unit tests for volto-forest-policy addon in CI
+	cd frontend && pnpm install
+	cd frontend && CI=true pnpm --filter @eeacms/volto-forest-policy test
+
+.PHONY: ci-test
+ci-test: ## Run unit tests in CI
+	$(MAKE) ci-test-addon
 
 ###########################################
 # Container images

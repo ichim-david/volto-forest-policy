@@ -17,7 +17,7 @@
       "@eeacms/volto-forest-policy/*": ["./src/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx"], // Fixed: allowJs requires JS files to be included
   "exclude": [
     "node_modules",
     "build",

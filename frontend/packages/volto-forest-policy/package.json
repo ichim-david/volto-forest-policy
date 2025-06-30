@@ -20,11 +20,12 @@
     "access": "public"
   },
   "scripts": {
-    "i18n": "rm -rf build/messages && NODE_ENV=production i18n --addon",
+    "i18n": "rm -rf build/messages && NODE_ENV=production @plone/scripts i18n --addon",
     "dry-release": "release-it --dry-run",
     "release": "release-it",
     "release-major-alpha": "release-it major --preRelease=alpha",
-    "release-alpha": "release-it --preRelease=alpha"
+    "release-alpha": "release-it --preRelease=alpha",
+    "test": "../../node_modules/.pnpm/node_modules/.bin/jest --config jest.config.js"
   },
   "addons": [
     "@eeacms/volto-eea-map",
