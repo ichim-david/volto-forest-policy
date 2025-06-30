@@ -1,12 +1,13 @@
 {
-  "eslint.workingDirectories": ["./frontend"],
+  "eslint.workingDirectories": [
+    "./frontend",
+    "./frontend/packages/volto-forest-policy"
+  ],
   "flake8.cwd": "${workspaceFolder}/backend",
   "flake8.args": ["--config=pyproject.toml"],
   "ruff.organizeImports": true,
   "python.terminal.activateEnvironment": true,
-  "python.testing.pytestArgs": [
-    "backend/tests"
-  ],
+  "python.testing.pytestArgs": ["backend/tests"],
   "python.testing.unittestEnabled": false,
   "python.testing.pytestEnabled": true,
   "[markdown]": {
